@@ -3,11 +3,31 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Register from './Register';
+import Login from './Login';
+import AddBook from './AddBook';
+import ViewBook from './ViewBook';
+import EditBook from './Edit';
+import Nav from './Nav';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Register/>}/>
+      <Route path='/login' element={<Login/>}/>
+
+      <Route path='/user' element={<Nav/>}>
+
+      <Route path='addBook' element={<AddBook/>}/>
+      <Route path='viewBook' element={<ViewBook/>}/>
+      <Route path='edit/:id' element={<EditBook/>}/>
+      
+      </Route>
+    </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
